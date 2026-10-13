@@ -21,7 +21,7 @@ Node 18+ recommended.
 Attendance % = (Present + Late + OD) / total recorded entries. Zero records show 0% and "No data".
 Categories: 90-100 Excellent, 75-89 Good, 60-74 Low, below 60 Critical.
 
-## API
+Holidays are loaded from `/.netlify/functions/holidays`, a Netlify Function that calls the Calendarific API server-side. Set the full upstream URL (including `api_key`) in the `HOLIDAY_API_URL` Netlify environment variable — never in a `REACT_APP_*` variable, since those are embedded in the public JavaScript bundle.
 `GET https://date.nager.at/api/v3/PublicHolidays/2026/IN` (set `REACT_APP_HOLIDAY_API_URL` to change; see `.env.example`).
 Failures show a message and a Retry button; the rest of the app keeps working. An empty/204 response shows an empty state.
 Note: external availability and coverage are not guaranteed.
